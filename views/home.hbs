@@ -1,0 +1,42 @@
+
+<div class="col-md-12">
+
+<div class="splash" style="text-align:center;margin-top:200px;">
+    <img src="images/splash-page.png">
+</div>
+
+
+<div class="col-md-4 col-md-offset-4">
+<label>What are you looking for...</label>
+<select id="category" class="form-control">
+	<option value="fast food">Fast Food</option>
+	<option value="drive thru">Drive Thru</option>
+	<option value="restaurants">Restaurants</option>
+    <option value="music venues">Music Venues</option>
+</select><br />
+<button onclick="getLocation();" class="btn btn-primary">Search nearby places</button>
+
+<br />
+<p id="demo"></p>
+</div>
+
+
+<script>
+var x = document.getElementById("demo");
+var term; 
+function getLocation() {
+    window.location.href = "/places/32.788878/-96.805210/"+document.getElementById("category").value;
+  /* if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        term = document.getElementById("category").value;
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    } */
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+    window.location.href = "/places/"+position.coords.latitude+"/"+position.coords.longitude+"/"+term;	
+}
+</script>
+</div>

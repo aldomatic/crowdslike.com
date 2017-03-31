@@ -1,0 +1,20 @@
+<div class="col-md-12" style="background-color:#fff;">
+<h3>Places found near your location.</h3>
+
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each businesses}}
+        <tr>
+          <td><a href="/place/{{this.name}}/{{this.id}}" title="{{this.name}}">{{this.name}}</a></td>
+          <td>{{this.location.address}}, {{this.location.city}} {{this.location.state_code}} {{this.location.postal_code}}</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+</div>
